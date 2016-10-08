@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import Home from './Home';
 import Counter from './Counter';
+import GamesList from './GamesList';
 
 const { CardStack } = NavigationExperimental;
 
@@ -27,6 +28,8 @@ export default class Router extends Component {
         return <Home navigate={this.handleNavigation} />;
       case 'scene_counter':
         return <Counter navigate={this.handleNavigation} />;
+      case 'scene_games_list':
+        return <GamesList navigate={this.handleNavigation} />;
       default:
         return null;
     }

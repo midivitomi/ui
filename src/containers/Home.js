@@ -30,11 +30,11 @@ export default class Home extends Component {
     navigate: PropTypes.func.isRequired
   };
 
-  toCounter = () => {
+  toGamesList = () => {
     const { navigate } = this.props;
     navigate({
       type: 'push',
-      key: 'counter'
+      key: 'games_list',
     });
   }
 
@@ -44,8 +44,8 @@ export default class Home extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native Boilerplate!
         </Text>
-        <TouchableOpacity onPress={this.toCounter}>
-          <Text style={styles.instructions}>Navigate to Counter</Text>
+        <TouchableOpacity onPress={this.toGamesList}>
+          <Text style={styles.instructions}>GamesList</Text>
         </TouchableOpacity>
       </View>
     );
