@@ -39,6 +39,7 @@ export default class Home extends Component {
     });
   }
 
+
   toGamesList = () => {
     const { navigate } = this.props;
 
