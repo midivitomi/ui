@@ -16,6 +16,7 @@ export default class OpenGame extends Component {
 
           <Title>Описание</Title>
         </Header>
+
         <Grid>
           <Col style={{ backgroundColor: '#D954D7', height: 200 }}>1</Col>
           <Col style={{ backgroundColor: '#D93735', height: 200  }}>2</Col>
