@@ -46,3 +46,5 @@ android/keystores/debug.keystore
 # Deco
 #
 .deco/
+
+ios/RNBoilerplate.xcodeproj/project.pbxproj
