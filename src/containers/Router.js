@@ -3,9 +3,10 @@ import { NavigationExperimental } from 'react-native';
 import { connect } from 'react-redux';
 
 import Home from './Home';
-import Counter from './Counter';
+
 import GamesList from './GamesList';
 import OpenGame from './OpenGame';
+import DivisionsChecking from './DivisionsChecking';
 
 const { CardStack } = NavigationExperimental;
 
@@ -27,8 +28,8 @@ export default class Router extends Component {
     switch (props.scene.key) {
       case 'scene_home':
         return <Home navigate={this.handleNavigation} />;
-      case 'scene_counter':
-        return <Counter navigate={this.handleNavigation} />;
+      case 'scene_divisions_checking':
+        return <DivisionsChecking navigate={this.handleNavigation} />;
       case 'scene_games_list':
         return <GamesList navigate={this.handleNavigation} />;
       case 'scene_open_game':

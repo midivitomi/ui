@@ -30,8 +30,18 @@ export default class Home extends Component {
     navigate: PropTypes.func.isRequired
   };
 
+  toDivisionsChecking = () => {
+    const { navigate } = this.props;
+
+    navigate({
+      type: 'push',
+      key: 'divisions_checking',
+    });
+  }
+
   toGamesList = () => {
     const { navigate } = this.props;
+
     navigate({
       type: 'push',
       key: 'games_list',
@@ -50,13 +60,16 @@ export default class Home extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native Boilerplate!
+          Splash screen will be there
         </Text>
         <TouchableOpacity onPress={this.toGamesList}>
           <Text style={styles.instructions}>GamesList</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.toOpenGame}>
           <Text style={styles.instructions}>OpenGame</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.toDivisionsChecking}>
+          <Text style={styles.instructions}>Navigate to Divisions Checking</Text>
         </TouchableOpacity>
       </View>
     );

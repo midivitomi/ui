@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import counter from './counter';
+import divisionsChecking from './divisionsChecking';
 import routes from './routes';
 
 export default combineReducers({
-  counter,
+  divisionsChecking,
   routes
 });

@@ -5,7 +5,7 @@ import { Platform } from 'react-native';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from './reducers';
-import * as actionCreators from './actions/counter';
+import * as actionCreators from './actions/divisionsCheckingActions';
 
 const middlewares = [thunk];
 
