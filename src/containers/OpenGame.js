@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { StyleSheet } from 'react-native';
 import { Container, Header, Button, Icon, Title, Content, List, ListItem, Text } from 'native-base';
 import { bindActionCreators } from 'redux';
@@ -23,11 +23,23 @@ const styles = StyleSheet.create({
 });
 
 export default class OpenGame extends Component {
+  static propTypes = {
+    navigate: PropTypes.func.isRequired
+  };
+
+  handleBack = () => {
+    const { navigate } = this.props;
+    navigate({ type: 'pop' });
+  };
+
   render() {
     return (
       <Container>
         <Header>
-          <Button transparent>
+          <Button
+            transparent
+            onPress={this.handleBack.bind(this)}
+          >
             <Icon name='ios-arrow-back' />
           </Button>
 
