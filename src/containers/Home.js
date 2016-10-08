@@ -38,6 +38,14 @@ export default class Home extends Component {
     });
   }
 
+  toOpenGame = () => {
+    const { navigate } = this.props;
+    navigate({
+      type: 'push',
+      key: 'open_game',
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -46,6 +54,9 @@ export default class Home extends Component {
         </Text>
         <TouchableOpacity onPress={this.toGamesList}>
           <Text style={styles.instructions}>GamesList</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.toOpenGame}>
+          <Text style={styles.instructions}>OpenGame</Text>
         </TouchableOpacity>
       </View>
     );
