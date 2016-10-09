@@ -17,12 +17,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as GameListActions from '../actions/gameListActions';
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#589c6b'
-  }
-});
-
 @connect(
   state => ({ gamesList: state.divisionsChecking.gamesList }),
   dispatch => bindActionCreators(GameListActions, dispatch)
@@ -61,18 +55,19 @@ export default class GameList extends Component {
           <Title>Ближайшие матчи</Title>
         </Header>
 
-        <Content>
+        <Content style={{ backgroundColor: '#ffffff' }}>
           {
             gamesList.length ? gamesList.map((gameDate, index) => (
               <List key={index}>
-                <ListItem itemDivider style={styles.container}>
-                  <Text style={{ color: '#ffffff' }}>{gameDate.date.date}</Text>
+                <ListItem itemDivider style={{ backgroundColor: '#589c6b', paddingTop: 25, paddingBottom: 25 }}>
+                  <Text style={{ color: '#ffffff' }}>{gameDate.date}</Text>
                 </ListItem>
                 {
                   gameDate.gamesItems.map((gameItem, index) => (
                     <ListItem
                       key={index}
                       onPress={this.goToOpenGame.bind(this)}
+                      style={{ paddingTop: 20, paddingBottom: 20 }}
                     >
                         <Text>{gameItem.homeTeam} - {gameItem.guestTeam}</Text>
                     </ListItem>
