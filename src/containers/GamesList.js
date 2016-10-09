@@ -51,7 +51,6 @@ export default class GameList extends Component {
           >
             <Icon name='ios-arrow-back' />
           </Button>
-
           <Title>Ближайшие матчи</Title>
         </Header>
 
