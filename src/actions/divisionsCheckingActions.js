@@ -1,5 +1,7 @@
 import * as actionsTypes from '../constants/divisionsCheckingContants.js';
 import _ from 'lodash';
+import moment from 'moment';
+import * as locales from 'moment/min/locales';
 
 export function fetchDivisionsList() {
   return function(dispatch, getState) {
@@ -27,9 +29,9 @@ export function fetchDivisionsList() {
 
 export function fetchGamesList() {
   return function(dispatch, getState) {
-    const gamesList = [
+    let gamesList = [
       {
-        date : '9 октября 2016',
+        date : '2016-10-08 22:53:18',
         gamesItems : [
           {
             homeTeam : 'Газовик',
@@ -42,7 +44,7 @@ export function fetchGamesList() {
         ]
       },
       {
-        date : '9 октября 2016',
+        date : '2016-10-09 22:53:18',
         gamesItems : [
           {
             homeTeam : 'Волга',
@@ -51,7 +53,7 @@ export function fetchGamesList() {
         ]
       },
       {
-        date : '10 октября 2016',
+        date : '2016-11-09 22:53:18',
         gamesItems : [
           {
             homeTeam : 'Сибирь',
@@ -60,6 +62,18 @@ export function fetchGamesList() {
         ]
       }
     ];
+
+    function formatDate(date) {
+      const matchDate = moment(new Date(date)).locale('ru').format('D MMMM YYYY');
+      const matchTime = _.tail(date.split(' ')[1].split(':')).join(':');
+
+      return {
+        date: matchDate,
+        time: matchTime
+      }
+    }
+
+    gamesList = _.map(gamesList, _.unary(_.partialRight(_.update, 'date', formatDate)));
 
     setTimeout(() => {
       dispatch({

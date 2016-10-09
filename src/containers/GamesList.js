@@ -65,7 +65,7 @@ export default class GameList extends Component {
             gamesList.length ? gamesList.map((gameDate, index) => (
               <List key={index}>
                 <ListItem itemDivider style={styles.container}>
-                  <Text style={{ color: '#ffffff' }}>{gameDate.date}</Text>
+                  <Text style={{ color: '#ffffff' }}>{gameDate.date.date}</Text>
                 </ListItem>
                 {
                   gameDate.gamesItems.map((gameItem, index) => (
