@@ -34,6 +34,7 @@ export default class GameList extends Component {
 
   handleBack = () => {
     const { navigate } = this.props;
+
     navigate({ type: 'pop' });
   };
 
