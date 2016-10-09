@@ -11,7 +11,7 @@ export function fetchGameDescription() {
       homeTeam : 'Трактор',
       homeTeamCity : 'Томск',
       homeTeamCount : '5',
-      guestTeam : 'Мастер сварщик',
+      guestTeam : 'Сварщик',
       guestTeamCity : 'Екатеринбург',
       guestTeamCount : '0'
     };

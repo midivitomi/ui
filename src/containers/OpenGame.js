@@ -38,35 +38,33 @@ export default class OpenGame extends Component {
             <Icon name='ios-arrow-back' />
           </Button>
 
-          <Title>Описание</Title>
+          <Title>Описание матча</Title>
         </Header>
 
-        <Content>
+        <Content style={{ backgroundColor: '#ffffff' }}>
           {
             _.size(gameDescription) ?
             <Grid>
-            <Row>
-              <Col style={{ backgroundColor: '#ffffff' }}>
-                <Text style={styles.center}>{gameDescription.homeTeam}</Text>
-                <Text style={styles.center}>{gameDescription.homeTeamCity}</Text>
-              </Col>
-              <Col style={{ backgroundColor: '#ebebeb' }}>
-                <Text style={styles.center}>{gameDescription.homeTeamCount} : {gameDescription.guestTeamCount}</Text>
-              </Col>
-              <Col style={{ backgroundColor: '#ffffff' }}>
-                <Text style={styles.center}>{gameDescription.guestTeam}</Text>
-                <Text style={styles.center}>{gameDescription.guestTeamCity}</Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col style={{ backgroundColor: '#00c497' }}>
-                <Text style={styles.center}>{gameDescription.date}</Text>
-                <Text style={styles.center}>{gameDescription.time}</Text>
-                <Text style={styles.center}>{gameDescription.city}</Text>
-                <Text style={styles.center}>Стадион: {gameDescription.place}</Text>
-              </Col>
-            </Row>
-          </Grid> :
+              <Row style={{ backgroundColor: '#589c6b', paddingTop: 25, paddingBottom: 25 }}>
+                <Col>
+                  <Text style={{ textAlign : 'center', color: '#ffffff', fontSize: 18, paddingBottom: 10 }}>{gameDescription.date} в {gameDescription.time}</Text>
+                  <Text style={{ textAlign : 'center', color: '#ffffff' }}>{gameDescription.city}, cтадион: {gameDescription.place}</Text>
+                </Col>
+              </Row>
+              <Row style={{ paddingTop: 35, paddingBottom: 25 }}>
+                <Col>
+                  <Text style={{ textAlign : 'center', fontSize: 20, paddingBottom: 5 }}>{gameDescription.homeTeam}</Text>
+                  <Text style={{ textAlign : 'center', color: '#959595' }}>{gameDescription.homeTeamCity}</Text>
+                </Col>
+                <Col>
+                  <Text style={{ textAlign : 'center', paddingTop: 21, fontSize: 30 }}>{gameDescription.homeTeamCount} : {gameDescription.guestTeamCount}</Text>
+                </Col>
+                <Col>
+                  <Text style={{ textAlign : 'center', fontSize: 20, paddingBottom: 5 }}>{gameDescription.guestTeam}</Text>
+                  <Text style={{ textAlign : 'center', color: '#959595' }}>{gameDescription.guestTeamCity}</Text>
+                </Col>
+              </Row>
+            </Grid> :
           <Spinner color='blue' />
           }
         </Content>

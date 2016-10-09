@@ -7,7 +7,7 @@ import * as GameListActions from '../actions/gameListActions';
 
 const gamesDates = [
   {
-    date : '8 октября 2016',
+    date : '8.10.2016',
     gamesItems : [
       {
         homeTeam : 'Газовик',
@@ -20,7 +20,7 @@ const gamesDates = [
     ]
   },
   {
-    date : '10 октября 2016',
+    date : '10.10.2016',
     gamesItems : [
       {
         homeTeam : 'Волга',
@@ -29,7 +29,7 @@ const gamesDates = [
     ]
   },
   {
-    date : '12 октября 2016',
+    date : '12.10.2016',
     gamesItems : [
       {
         homeTeam : 'Сибирь',
@@ -41,7 +41,7 @@ const gamesDates = [
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#00c497'
+    backgroundColor: '#589c6b'
   }
 });
 
@@ -86,7 +86,7 @@ export default class GameList extends Component {
             gamesDates.map((gameDate, index) => (
               <List key={index}>
                 <ListItem itemDivider style={styles.container}>
-                  <Text>{gameDate.date}</Text>
+                  <Text style={{ color: '#ffffff' }}>{gameDate.date}</Text>
                 </ListItem>
                 {
                   gameDate.gamesItems.map((gameItem, index) => (
