@@ -1,38 +1,25 @@
-import * as actionsTypes from '../constants/divisionsCheckingContants.js';
+import * as actionsTypes from '../constants/gameListConstants.js';
 import _ from 'lodash';
 console.log(actionsTypes);
 
-export function fetchDivisionsList() {
+export function fetchGameDescription() {
   return function(dispatch, getState) {
-    const mockDivisionsList = [
-      {
-        name: 'РФПЛ'
-      },
-      {
-        name: 'НФЛ'
-      },
-      {
-        name: 'ПФЛ'
-      }
-    ];
-
-    const extendMockDivisionsList = _.map(
-      mockDivisionsList,
-      _.unary(_.partialRight(_.assign, { checked: false }))
-    );
+    const mockGameDescription = {
+      date : '15.10.2016',
+      time : '12:00',
+      homeTeam : 'Трактор',
+      homeTeamCity : 'Томск',
+      homeTeamCount : '5',
+      guestTeam : 'Мастер сварщик',
+      guestTeamCity : 'Екатеринбург',
+      guestTeamCount : '0'
+    };
 
     setTimeout(() => {
       dispatch({
-          type: actionsTypes.FETCH_DIVISIONS_LIST_SUCCESS,
-          divisionsList: extendMockDivisionsList
+          type: actionsTypes.UPDATE_GAME_DESCRIPTION,
+          gameDescription: mockGameDescription
       });
     }, 4000)
-  }
-}
-
-export function toggleCheckbox(checkboxIndex) {
-  return {
-    type: actionsTypes.UPDATE_CHECKBOX_CONDITIONS,
-    updatedCheckboxIndex: checkboxIndex
   }
 }

@@ -46,9 +46,7 @@ const styles = StyleSheet.create({
 });
 
 @connect(
-  state => ({
-    gameList: state.gameList
-  }),
+  state => ({ gameList: state.gameList }),
   dispatch => bindActionCreators(GameListActions, dispatch)
 )
 export default class GameList extends Component {
@@ -62,11 +60,14 @@ export default class GameList extends Component {
   };
 
   goToOpenGame = (gameId) => {
-    const { navigate } = this.props;
+    const { navigate, fetchGameDescription } = this.props;
     navigate({ type: 'push', key : 'open_game' });
+
+    fetchGameDescription();
   }
 
   render() {
+    console.log(this.props);
     return (
       <Container>
         <Header>
