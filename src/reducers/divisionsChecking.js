@@ -3,13 +3,13 @@ import _ from 'lodash';
 
 const initialState = {
   divisionsList: [],
-  teamsList: []
+  gamesList: []
 }
 
 export default function divisionsChecking(state = initialState, action) {
   const {
     divisionsList,
-    teamsList,
+    gamesList,
     type,
     updatedCheckboxIndex
   } = action;
@@ -21,10 +21,10 @@ export default function divisionsChecking(state = initialState, action) {
         divisionsList
       }
 
-    case actionsTypes.FETCH_TEAMS_LIST_SUCCESS:
+    case actionsTypes.FETCH_GAME_LIST_SUCCESS:
       return {
         ...state,
-        teamsList
+        gamesList
       }
 
     case actionsTypes.UPDATE_CHECKBOX_CONDITIONS:

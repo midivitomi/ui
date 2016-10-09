@@ -36,13 +36,28 @@ export default class DivisionsChecking extends Component {
     this.props.fetchDivisionsList();
   }
 
+  handleButtonPress() {
+    const checkedLeaguesIds = _(this.props.divisionsChecking.divisionsList)
+      .filter('checked')
+      .map('id')
+      .value();
+
+    this.props.fetchGamesList(checkedLeaguesIds);
+
+    this.props.navigate({
+      type: 'push',
+      key : 'games_list'
+    });
+  }
+
   handleCheckboxClick(checkboxIndex) {
-    this.props.toggleCheckbox(checkboxIndex)
+    this.props.toggleCheckbox(checkboxIndex);
   }
 
   render() {
     const { divisionsList } = this.props.divisionsChecking;
-    const hasCheckingLeagues = _.some(divisionsList, 'checked');
+
+    const hasCheckedDivisions = _.some(divisionsList, 'checked');
 
     return (
       <Container>
@@ -60,11 +75,12 @@ export default class DivisionsChecking extends Component {
                   onCheckboxClick={this.handleCheckboxClick.bind(this)}
                 />
                 {
-                  hasCheckingLeagues ?
+                  hasCheckedDivisions ?
                     <Button
                       block
                       info
                       style={styles.button}
+                      onPress={this.handleButtonPress.bind(this)}
                     >Показать ближайшие матчи</Button> : null
                 }
               </View> :

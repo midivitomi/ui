@@ -1,6 +1,5 @@
 import * as actionsTypes from '../constants/divisionsCheckingContants.js';
 import _ from 'lodash';
-console.log(actionsTypes);
 
 export function fetchDivisionsList() {
   return function(dispatch, getState) {
@@ -26,71 +25,37 @@ export function fetchDivisionsList() {
   }
 }
 
-// export function fetchDivisionsList2() {
-//   return function(dispatch, getState) {
-//     const mockDivisionsList = [
-//       {
-//         name: 'РФПЛ',
-//         id: 1
-//       },
-//       {
-//         name: 'НФЛ',
-//         id: 2
-//       },
-//       {
-//         name: 'ПФЛ',
-//         id: 3
-//       }
-//     ];
-
-//     const extendMockDivisionsList = _.map(
-//       mockDivisionsList,
-//       _.unary(_.partialRight(_.assign, { checked: false }))
-//     );
-
-//     setTimeout(() => {
-//       dispatch({
-//           type: actionsTypes.FETCH_DIVISIONS_LIST_SUCCESS,
-//           divisionsList: extendMockDivisionsList
-//       });
-//     }, 4000)
-//   }
-// }
-
-export function fetchTeamsList() {
+export function fetchGamesList() {
   return function(dispatch, getState) {
-    const mockTeamsList = [
+    const gamesList = [
       {
-        leagueId: 1,
-        leagueTeams: [
+        date : '9 октября 2016',
+        gamesItems : [
           {
-            teamName: 'Динамо',
-            teamId: 1
+            homeTeam : 'Газовик',
+            guestTeam : 'Факел'
           },
           {
-            teamName: 'Локомотив',
-            teamId: 2
-          },
-          {
-            teamName: 'Торпедо',
-            teamId: 3
+            homeTeam : 'Трактор',
+            guestTeam : 'Мастер сварщик'
           }
         ]
       },
       {
-        leagueId: 2,
-        leagueTeams: [
+        date : '9 октября 2016',
+        gamesItems : [
           {
-            teamName: 'Сокол',
-            teamId: 4
-          },
+            homeTeam : 'Волга',
+            guestTeam : 'Енисей'
+          }
+        ]
+      },
+      {
+        date : '10 октября 2016',
+        gamesItems : [
           {
-            teamName: 'Волгарь',
-            teamId: 5
-          },
-          {
-            teamName: 'Тосно',
-            teamId: 6
+            homeTeam : 'Сибирь',
+            guestTeam : 'Север'
           }
         ]
       }
@@ -98,10 +63,10 @@ export function fetchTeamsList() {
 
     setTimeout(() => {
       dispatch({
-          type: actionsTypes.FETCH_TEAMS_LIST_SUCCESS,
-          teamsList: mockTeamsList
+          type: actionsTypes.FETCH_GAME_LIST_SUCCESS,
+          gamesList
       });
-    }, 7000)
+    }, 4000)
   }
 }
 

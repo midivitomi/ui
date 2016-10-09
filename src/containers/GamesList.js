@@ -1,43 +1,21 @@
 import React, { Component, PropTypes } from 'react';
 import { StyleSheet } from 'react-native';
-import { Container, Button, Icon, Header, Title, Content, List, ListItem, Text } from 'native-base';
+
+import { Container,
+ Button,
+ Icon,
+ Header,
+ Title,
+ Content,
+ List,
+ Spinner,
+ ListItem,
+ Text
+} from 'native-base';
+
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as GameListActions from '../actions/gameListActions';
-
-const gamesDates = [
-  {
-    date : '8.10.2016',
-    gamesItems : [
-      {
-        homeTeam : 'Газовик',
-        guestTeam : 'Факел'
-      },
-      {
-        homeTeam : 'Трактор',
-        guestTeam : 'Мастер сварщик'
-      }
-    ]
-  },
-  {
-    date : '10.10.2016',
-    gamesItems : [
-      {
-        homeTeam : 'Волга',
-        guestTeam : 'Енисей'
-      }
-    ]
-  },
-  {
-    date : '12.10.2016',
-    gamesItems : [
-      {
-        homeTeam : 'Сибирь',
-        guestTeam : 'Север'
-      }
-    ]
-  }
-];
 
 const styles = StyleSheet.create({
   container: {
@@ -46,7 +24,7 @@ const styles = StyleSheet.create({
 });
 
 @connect(
-  state => ({ gameList: state.gameList }),
+  state => ({ gamesList: state.divisionsChecking.gamesList }),
   dispatch => bindActionCreators(GameListActions, dispatch)
 )
 export default class GameList extends Component {
@@ -67,7 +45,8 @@ export default class GameList extends Component {
   }
 
   render() {
-    console.log(this.props);
+    const { gamesList } = this.props;
+
     return (
       <Container>
         <Header>
@@ -83,7 +62,7 @@ export default class GameList extends Component {
 
         <Content>
           {
-            gamesDates.map((gameDate, index) => (
+            gamesList.length ? gamesList.map((gameDate, index) => (
               <List key={index}>
                 <ListItem itemDivider style={styles.container}>
                   <Text style={{ color: '#ffffff' }}>{gameDate.date}</Text>
@@ -101,7 +80,8 @@ export default class GameList extends Component {
                 }
               </List>
               )
-            )
+            ) :
+            <Spinner color='blue' />
           }
         </Content>
       </Container>
