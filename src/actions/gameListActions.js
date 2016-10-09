@@ -1,6 +1,5 @@
 import * as actionsTypes from '../constants/gameListConstants.js';
 import _ from 'lodash';
-console.log(actionsTypes);
 
 export function fetchGameDescription() {
   return function(dispatch, getState) {

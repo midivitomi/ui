@@ -5,10 +5,19 @@ import {
     Button,
     Container,
     Header,
+    Text,
     Title,
     Spinner,
     Content
 } from 'native-base';
+
+const styles = StyleSheet.create({
+  button: {
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20
+  }
+});
 
 import DivisionsList from '../components/DivisionsList';
 
@@ -23,15 +32,6 @@ import * as DivisionsCheckingActions from '../actions/divisionsCheckingActions';
   dispatch => bindActionCreators(DivisionsCheckingActions, dispatch)
 )
 export default class DivisionsChecking extends Component {
-  static propTypes = {
-    navigate: PropTypes.func.isRequired
-  };
-
-  handleBack = () => {
-    const { navigate } = this.props;
-    navigate({ type: 'pop' });
-  }
-
   componentDidMount() {
     this.props.fetchDivisionsList();
   }
@@ -42,12 +42,13 @@ export default class DivisionsChecking extends Component {
 
   render() {
     const { divisionsList } = this.props.divisionsChecking;
-console.log('-->', this.props)
+    const hasCheckingLeagues = _.some(divisionsList, 'checked');
+
     return (
       <Container>
           <Header>
             <Title>
-              Выбор лиги
+              Выбор футбольных лиг
             </Title>
           </Header>
           <Content>
@@ -58,7 +59,14 @@ console.log('-->', this.props)
                   items={divisionsList}
                   onCheckboxClick={this.handleCheckboxClick.bind(this)}
                 />
-                <Button block info>Ближайшие матчи</Button>
+                {
+                  hasCheckingLeagues ?
+                    <Button
+                      block
+                      info
+                      style={styles.button}
+                    >Показать ближайшие матчи</Button> : null
+                }
               </View> :
               <Spinner color='blue' />
             }
