@@ -2,12 +2,14 @@ import * as actionsTypes from '../constants/divisionsCheckingContants.js';
 import _ from 'lodash';
 
 const initialState = {
-  divisionsList: []
+  divisionsList: [],
+  teamsList: []
 }
 
 export default function divisionsChecking(state = initialState, action) {
   const {
     divisionsList,
+    teamsList,
     type,
     updatedCheckboxIndex
   } = action;
@@ -17,6 +19,12 @@ export default function divisionsChecking(state = initialState, action) {
       return {
         ...state,
         divisionsList
+      }
+
+    case actionsTypes.FETCH_TEAMS_LIST_SUCCESS:
+      return {
+        ...state,
+        teamsList
       }
 
     case actionsTypes.UPDATE_CHECKBOX_CONDITIONS:

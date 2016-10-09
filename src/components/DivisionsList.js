@@ -21,7 +21,7 @@ export default class Counter extends Component {
                 checked={divisionData.checked}
                 onPress={_.partial(onCheckboxClick, index)}
               />
-              <Text>{divisionData.name}</Text>
+              <Text>{divisionData.attributes.title}</Text>
             </ListItem>
           ))
         }

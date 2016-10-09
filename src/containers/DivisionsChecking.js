@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 
 import {
+    Button,
     Container,
     Header,
     Title,
@@ -40,10 +41,8 @@ export default class DivisionsChecking extends Component {
   }
 
   render() {
-    console.log('tttt', this.props.divisionsChecking);
-
     const { divisionsList } = this.props.divisionsChecking;
-
+console.log('-->', this.props)
     return (
       <Container>
           <Header>
@@ -54,10 +53,13 @@ export default class DivisionsChecking extends Component {
           <Content>
             {
               divisionsList.length ?
-              <DivisionsList
-                items={divisionsList}
-                onCheckboxClick={this.handleCheckboxClick.bind(this)}
-              /> :
+              <View>
+                <DivisionsList
+                  items={divisionsList}
+                  onCheckboxClick={this.handleCheckboxClick.bind(this)}
+                />
+                <Button block info>Ближайшие матчи</Button>
+              </View> :
               <Spinner color='blue' />
             }
           </Content>
