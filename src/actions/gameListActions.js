@@ -6,6 +6,8 @@ export function fetchGameDescription() {
     const mockGameDescription = {
       date : '15.10.2016',
       time : '12:00',
+      city : 'Воронеж',
+      place : 'Труд',
       homeTeam : 'Трактор',
       homeTeamCity : 'Томск',
       homeTeamCount : '5',

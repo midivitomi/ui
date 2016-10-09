@@ -46,22 +46,24 @@ export default class OpenGame extends Component {
             _.size(gameDescription) ?
             <Grid>
             <Row>
-              <Col style={{ backgroundColor: '#6174fa' }}>
+              <Col style={{ backgroundColor: '#ffffff' }}>
                 <Text style={styles.center}>{gameDescription.homeTeam}</Text>
                 <Text style={styles.center}>{gameDescription.homeTeamCity}</Text>
               </Col>
-              <Col style={{ backgroundColor: '#6cc06e' }}>
+              <Col style={{ backgroundColor: '#ebebeb' }}>
                 <Text style={styles.center}>{gameDescription.homeTeamCount} : {gameDescription.guestTeamCount}</Text>
               </Col>
-              <Col style={{ backgroundColor: '#6fc8e0' }}>
+              <Col style={{ backgroundColor: '#ffffff' }}>
                 <Text style={styles.center}>{gameDescription.guestTeam}</Text>
                 <Text style={styles.center}>{gameDescription.guestTeamCity}</Text>
               </Col>
             </Row>
             <Row>
-              <Col style={{ backgroundColor: '#d95d5c' }}>
+              <Col style={{ backgroundColor: '#00c497' }}>
                 <Text style={styles.center}>{gameDescription.date}</Text>
                 <Text style={styles.center}>{gameDescription.time}</Text>
+                <Text style={styles.center}>{gameDescription.city}</Text>
+                <Text style={styles.center}>Стадион: {gameDescription.place}</Text>
               </Col>
             </Row>
           </Grid> :
