@@ -78,7 +78,7 @@ export default class DivisionsChecking extends Component {
                   hasCheckedDivisions ?
                     <Button
                       block
-                      info
+                      success
                       style={styles.button}
                       onPress={this.handleButtonPress.bind(this)}
                     >Показать ближайшие матчи</Button> : null
